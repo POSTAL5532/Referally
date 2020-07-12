@@ -1,0 +1,23 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+            "targets": {
+                "node": 12
+            }
+        }],
+        "@babel/preset-typescript",
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "test": "./src/test",
+                "app": "./src/app"
+            }
+        }],
+        "@babel/proposal-object-rest-spread",
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/proposal-class-properties", { "loose" :  true }]
+    ]
+}

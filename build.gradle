@@ -1,0 +1,28 @@
+//Общая конфигурация для всех проектов
+allprojects {
+    group 'com.referally'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+//Конфигурация для Java-проектов
+[':referally-service', ':referally-data'].each { name ->
+    project(":$name") {
+        apply plugin: 'java'
+
+        sourceCompatibility = 1.8
+        compileJava.options.encoding = "UTF-8"
+        compileTestJava.options.encoding = "UTF-8"
+
+        repositories {
+            mavenCentral()
+        }
+
+        dependencies {
+            testCompile group: 'junit', name: 'junit', version: '4.12'
+        }
+    }
+}

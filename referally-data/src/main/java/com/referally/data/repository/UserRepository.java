@@ -1,0 +1,23 @@
+package com.referally.data.repository;
+
+import com.referally.data.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, String> {
+
+    Optional<User> findByLoginOrEmail(String login, String email);
+
+    Optional<User> findById(String id);
+
+    Boolean existsByLogin(String login);
+
+    Boolean existsByLoginAndLoginNot(String login, String currentUserLogin);
+
+    Boolean existsByEmail(String email);
+
+    Boolean existsByEmailAndEmailNot(String email, String currentUserEmail);
+}

@@ -1,0 +1,6 @@
+rootProject.name = 'referally'
+
+include 'referally-data'
+include 'referally-service'
+include 'referally-console'
+include 'referally-integration'
