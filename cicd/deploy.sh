@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-chmod -R 775 ./*
-mkdir -p build
-
 PROJECT_ROOT=$(dirname $(dirname $(realpath $0)))
 
 echo "REAL PATH: $PROJECT_ROOT"
