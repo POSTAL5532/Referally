@@ -28,4 +28,4 @@ echo -e "copying application $INTEGRATION_NAME to $SSH_SERVER"
 scp -i ${SSH_KEY_FILE} ${PROJECT_ROOT}/${INTEGRATION_NAME}/build/${INTEGRATION_NAME}.zip ${SSH_USER}@${SSH_SERVER}:/tmp/${INTEGRATION_NAME}.zip
 
 echo -e "copying application $SERVICE_NAME to $SSH_SERVER"
-scp -i ${SSH_KEY_FILE} ${PROJECT_ROOT}/${SERVICE_NAME}/libs/build/${SERVICE_NAME}.war ${SSH_USER}@${SSH_SERVER}:/tmp/${SERVICE_NAME}.war
+scp -i ${SSH_KEY_FILE} ${PROJECT_ROOT}/${SERVICE_NAME}/build/libs/${SERVICE_NAME}.war ${SSH_USER}@${SSH_SERVER}:/tmp/${SERVICE_NAME}.war
