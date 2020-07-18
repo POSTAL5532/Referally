@@ -1,6 +1,8 @@
 chmod -R 775 ./*
 mkdir -p build
 
+echo "REAL PATH: $(realpath $0)"
+
 PROJECT_ROOT=$(dirname "$(dirname "$(realpath $0)")")
 
 CONSOLE_NAME="referally-console"
