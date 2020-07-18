@@ -94,7 +94,7 @@ module.exports = (env, argv) => {
             new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
             new ZipPlugin({
                 path: '..',
-                filename: `deposit-arm.zip`
+                filename: `referally-console.zip`
             }),
 
             new webpack.DefinePlugin(envKeys)

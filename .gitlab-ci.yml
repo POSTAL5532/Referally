@@ -8,3 +8,11 @@ build:
   script:
     - chmod +x gradlew
     - ./gradlew clean build
+
+deploy:
+  stage: deploy
+  script:
+    - chmod +x cicd/deploy.sh
+    - ./cicd/deploy.sh
+  dependencies:
+    - build
