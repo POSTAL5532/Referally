@@ -13,7 +13,7 @@ build:
 deploy:
   stage: deploy
   script:
-    - chmod +x cicd/deploy.sh
+    - chmod +x deploy.sh
     - ./deploy.sh
   dependencies:
     - build
