@@ -1,0 +1,11 @@
+image: cicd\Dockerfile
+cache:
+  paths:
+    - .m2/repository
+
+stages:
+  - build
+
+build:
+  stage: build
+  script: "./gradlew clean build"
