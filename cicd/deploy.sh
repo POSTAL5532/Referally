@@ -1,7 +1,7 @@
 chmod -R 775 ./*
 mkdir -p build
 
-PROJECT_ROOT=$(dirname "$(realpath $0)")
+PROJECT_ROOT=$(dirname "$(dirname "$(realpath $0)")")
 
 CONSOLE_NAME="referally-console"
 INTEGRATION_NAME="referally-integration"
