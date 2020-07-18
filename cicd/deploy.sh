@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 chmod -R 775 ./*
 mkdir -p build
 
