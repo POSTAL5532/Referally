@@ -1,4 +1,5 @@
-image: cicd\dockerfile
+image: cicd\Dockerfile
+
 cache:
   paths:
     - .m2/repository
