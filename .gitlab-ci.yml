@@ -2,6 +2,7 @@ image: openjdk:8
 
 stages:
   - build
+  - deploy
 
 build:
   stage: build
