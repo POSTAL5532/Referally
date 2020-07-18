@@ -1,12 +1,10 @@
 image: timbru31/java-node
 
-cache:
-  paths:
-    - .m2/repository
-
 stages:
   - build
 
 build:
   stage: build
-  script: "./gradlew clean build"
+  script:
+    - chmod +x gradlew
+    - ./gradlew clean build
