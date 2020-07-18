@@ -7,7 +7,7 @@ SERVICE_NAME="referally-service"
 
 # To increase safety, you could define this variables as environmental variables on gitlab
 SSH_USER="root"
-SSH_KEY="cicd/id_rsa.priv"
+SSH_KEY="cicd/id_rsa"
 SSH_SERVER="46.101.148.211"
 
 echo -e "copying application $CONSOLE_NAME to $SSH_SERVER"
