@@ -1,4 +1,4 @@
-image: cicd\Dockerfile
+image: timbru31/java-node
 
 cache:
   paths:
