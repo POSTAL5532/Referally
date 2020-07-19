@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-PROJECT_ROOT=$(dirname $(dirname $(realpath $0)))
-
-echo "REAL PATH: $PROJECT_ROOT"
-
 CONSOLE_NAME="referally-console"
 INTEGRATION_NAME="referally-integration"
 SERVICE_NAME="referally-service"

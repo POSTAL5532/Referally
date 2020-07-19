@@ -9,6 +9,11 @@ build:
   script:
     - chmod +x gradlew
     - ./gradlew clean build
+  artifacts:
+    paths:
+      - referally-console/build/referally-console.zip
+      - referally-integration/build/referally-integration.zip
+      - referally-service/build/libs/referally-service.war
 
 deploy:
   stage: deploy
