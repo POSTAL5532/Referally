@@ -11,8 +11,8 @@ build:
     - ./gradlew clean build
   artifacts:
     paths:
-      - referally-console/build/referally-console.zip
-      - referally-integration/build/referally-integration.zip
+      - referally-console/build/dist
+      - referally-integration/build/dist
       - referally-service/build/libs/referally-service.war
 
 deploy:
