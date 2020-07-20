@@ -21,7 +21,11 @@ public class UserController {
      */
     @GetMapping("/userinfo/{id}")
     public User getUserInfo(@PathVariable String id) {
-        User user = userService.get(id);
+        User user = new User();
+        user.setId(id);
+        user.setLogin("Postal5532");
+        user.setEmail("evegnii-onegin123@gmail.com");
+        user.setPassword("SOME_PASSWORD");
         return user;
     }
 }

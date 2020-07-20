@@ -26,3 +26,4 @@ scp -i ${SSH_KEY_FILE} -r ${INTEGRATION_NAME}/build/dist/* ${SERVER_FULL}:${CLIE
 
 echo -e "copying application $SERVICE_NAME to $SSH_SERVER"
 scp -i ${SSH_KEY_FILE} ${SERVICE_NAME}/build/libs/${SERVICE_NAME}.war ${SERVER_FULL}:/opt/tomcat/webapps/${SERVICE_NAME}.war
+ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} 'systemctl restart tomcat'
