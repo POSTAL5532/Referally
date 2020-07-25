@@ -1,5 +1,19 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath(
+                "org.springframework.boot:spring-boot-gradle-plugin:2.3.1.RELEASE")
+    }
+}
+
 plugins {
     id 'war'
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
     id 'org.hidetake.swagger.generator' version '2.18.2'
 }
 
