@@ -22,8 +22,10 @@ mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >~/.ssh/config
 
-ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} "mysql -u ${SQL_USER} -p${SQL_PASSWORD} -e 'drop database if exist ${SQL_DB_NAME}'"
+echo -e "########## Create database"
+ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} "mysql -u ${SQL_USER} -p${SQL_PASSWORD} -e 'drop database ${SQL_DB_NAME}'"
 ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} "mysql -u ${SQL_USER} -p${SQL_PASSWORD} -e 'create database ${SQL_DB_NAME}'"
+echo -e "########## Add init data"
 ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} mysql -u ${SQL_USER} -p${SQL_PASSWORD} ${SQL_DB_NAME} <referally-data/src/data/create.sql
 ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} mysql -u ${SQL_USER} -p${SQL_PASSWORD} ${SQL_DB_NAME} <referally-data/src/data/addTestData.sql
 
