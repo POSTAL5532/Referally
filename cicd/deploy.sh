@@ -11,12 +11,21 @@ SSH_KEY_FILE="cicd/id_rsa"
 SSH_SERVER="46.101.148.211"
 SERVER_FULL=${SSH_USER}@${SSH_SERVER}
 
+SQL_USER="root"
+SQL_PASSWORD="5532Stalker"
+SQL_DB_NAME="referally"
+
 chmod 600 ${SSH_KEY_FILE}
 
 echo -e "########## Server accessing"
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >~/.ssh/config
+
+ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} mysql -u ${SQL_USER} -p${SQL_PASSWORD} -e "drop database ${SQL_DB_NAME}"
+ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} mysql -u ${SQL_USER} -p${SQL_PASSWORD} -e "create database ${SQL_DB_NAME}"
+ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} mysql -u ${SQL_USER} -p${SQL_PASSWORD} ${SQL_DB_NAME} <referally-data/src/data/create.sql
+ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} mysql -u ${SQL_USER} -p${SQL_PASSWORD} ${SQL_DB_NAME} <referally-data/src/data/addTestData.sql
 
 echo -e "########## Clear old builds of '$CONSOLE_NAME'"
 ssh -i ${SSH_KEY_FILE} ${SERVER_FULL} 'rm -r ../opt/referally_clients/referally-console/*'

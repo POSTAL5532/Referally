@@ -21,4 +21,10 @@ public class UserService {
                 .findById(id)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
     }
+
+    public User getByLogin(String login) {
+        return this.userRepository
+                .findByLogin(login)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with login : " + login));
+    }
 }

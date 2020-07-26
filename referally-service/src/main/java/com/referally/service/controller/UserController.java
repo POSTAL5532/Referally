@@ -19,13 +19,8 @@ public class UserController {
     /**
      * Возвращает информацию о пользователе
      */
-    @GetMapping("/userinfo/{id}")
-    public User getUserInfo(@PathVariable String id) {
-        User user = new User();
-        user.setId(id);
-        user.setLogin("Postal5532");
-        user.setEmail("evegnii-onegin123@gmail.com");
-        user.setPassword("SOME_PASSWORD");
-        return user;
+    @GetMapping("/userinfo/{login}")
+    public User getUserInfo(@PathVariable String login) {
+        return this.userService.getByLogin(login);
     }
 }
