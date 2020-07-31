@@ -1,6 +1,6 @@
 package com.referally.data.repository;
 
-import com.referally.data.model.User;
+import com.referally.data.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

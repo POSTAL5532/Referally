@@ -1,6 +1,6 @@
 package com.referally.service.service;
 
-import com.referally.data.model.User;
+import com.referally.data.model.user.User;
 import com.referally.data.repository.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

@@ -28,3 +28,7 @@ dependencies {
 
     compile project(':referally-data')
 }
+
+bootRun {
+    args = ["--spring.profiles.active=dev"]
+}

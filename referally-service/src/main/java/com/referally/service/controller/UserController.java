@@ -1,6 +1,6 @@
 package com.referally.service.controller;
 
-import com.referally.data.model.User;
+import com.referally.data.model.user.User;
 import com.referally.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
