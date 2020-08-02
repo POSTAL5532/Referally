@@ -1,0 +1,49 @@
+# Empty values request
+POST http://localhost:8080/registration
+Content-Type: application/json
+
+{
+  "login": "",
+  "email": "",
+  "password": "",
+  "r_password": ""
+}
+
+###
+
+# Invalid values request
+POST http://localhost:8080/registration
+Content-Type: application/json
+
+{
+  "login": "qqqq",
+  "email": "wwwww",
+  "password": "eeee",
+  "r_password": "eeee"
+}
+
+###
+
+# Valid values, passwords not equivalence, login and email not unique request
+POST http://localhost:8080/registration
+Content-Type: application/json
+
+{
+  "login": "ivan12",
+  "email": "ivan@qwe.qwe",
+  "password": "Eeeee123",
+  "r_password": "Qqqqq123"
+}
+
+###
+
+# Empty values request
+POST http://localhost:8080/registration
+Content-Type: application/json
+
+{
+  "login": "newLogin123",
+  "email": "newemail@email.em",
+  "password": "Eeeee123",
+  "r_password": "Eeeee123"
+}
