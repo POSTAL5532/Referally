@@ -1,16 +1,22 @@
 import React from 'react';
 import 'antd/dist/antd.less';
-import {PageHeader, Result} from "antd";
+import {PageHeader} from "antd";
+import {UnauthorizedRoute} from "app/components/CustomRoute";
+import {LOGIN_PAGE_URL, LoginPage} from "app/logic/loginpage/LoginPage";
+import {REGISTRATION_PAGE_URL, RegistrationPage} from "app/logic/registrationpage/RegistrationPage";
+import {Redirect, Route, Switch} from "react-router";
 
 const App = () => {
     return (
         <>
             <PageHeader title="Referally" subTitle="console application"/>
-            <Result
-                status="404"
-                title="Hmmm....."
-                subTitle="UFO flew in and stole content."
-            />
+
+            <Switch>
+                <UnauthorizedRoute path={LOGIN_PAGE_URL} exact component={LoginPage}/>
+                <UnauthorizedRoute path={REGISTRATION_PAGE_URL} exact component={RegistrationPage}/>
+
+                <Route render={() => <Redirect to={LOGIN_PAGE_URL}/>}/>
+            </Switch>
         </>
     );
 };
