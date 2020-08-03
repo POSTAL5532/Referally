@@ -1,14 +1,18 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const ZipPlugin = require("zip-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 const fs = require("fs");
 const dotenv = require("dotenv");
 const webpack = require("webpack");
 
+let mode;
+
 module.exports = (env, argv) => {
-    const envKeys = getEnvironmentVariables(argv.mode);
+    mode = argv.mode;
+    dotenv.config();
+
     return {
         entry: {
             app: path.join(__dirname, "src", "index.tsx")
@@ -87,38 +91,25 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebPackPlugin({
-                template: "./src/index.html",
+                template: "./public/index.ejs",
                 filename: "./index.html"
             }),
             new CleanWebpackPlugin(),
             new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
-            new ZipPlugin({
-                path: '..',
-                filename: `referally-integration.zip`
-            }),
-
-            new webpack.DefinePlugin(envKeys)
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: getEnvironmentFilePath(argv.mode),
+                        to: './props.js'
+                    }
+                ]
+            })
         ]
     }
 };
 
-
-function getEnvironmentVariables(mode) {
-
-    // fallback path (.env file)
-    const basePath = path.join(__dirname) + '/.env';
-
-    // path to .env.{mode} file
-    const envPath = basePath + '.' + mode;
-
-    // if .env.{mode} file doesn't exists fall back to .env file
-    const finalPath = fs.existsSync(envPath) ? envPath : basePath;
-
-    const env = dotenv.config({path: finalPath}).parsed;
-
-    return Object.keys(env)
-        .reduce((prev, next) => {
-            prev[`process.env.${next}`] = JSON.stringify(env[next]);
-            return prev;
-        }, {});
+function getEnvironmentFilePath(mode) {
+    const modeEnvPath = path.resolve("public", `${mode}.props.js`);
+    const defaultEnvPath = path.resolve("public/props.js");
+    return fs.existsSync(modeEnvPath) ? modeEnvPath : defaultEnvPath;
 }
