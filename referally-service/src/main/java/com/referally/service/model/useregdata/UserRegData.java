@@ -17,12 +17,11 @@ public class UserRegData {
     public static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,255}$";
 
     @JsonIgnore
-    public static final String LOGIN_PATTERN = "^[a-zA-Z\\d][\\w\\d]{4,255}[a-zA-Z\\d]$";
+    public static final String NAME_PATTERN = "^[a-zA-Z -]{2,255}$";
 
-    @NotBlank(message = "Логин не должен быть пустым")
-    @LoginUniqueness(message = "Пользователь с таким логином уже зарегестрирован")
-    @Pattern(regexp = LOGIN_PATTERN, message = "Значение логина не корректно")
-    private String login;
+    @NotBlank(message = "Имя не должно быть пустым")
+    @Pattern(regexp = NAME_PATTERN, message = "Значение имени не корректно")
+    private String name;
 
     @NotBlank(message = "Email не должен быть пустым")
     @Email(message = "Значение Email не корректно")
@@ -38,12 +37,12 @@ public class UserRegData {
     @Pattern(regexp = PASSWORD_PATTERN, message = "Значение повторного пароля не корректно")
     private String rPassword;
 
-    public String getLogin() {
-        return login;
+    public String getName() {
+        return name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -73,7 +72,7 @@ public class UserRegData {
     @Override
     public String toString() {
         return "UserRegData{" +
-                "login='" + login + '\'' +
+                "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", rPassword='" + rPassword + '\'' +

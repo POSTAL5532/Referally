@@ -34,16 +34,16 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
     }
 
-    public User getByLogin(String login) {
+    public User getByEmail(String email) {
         return this.userRepository
-                .findByLogin(login)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with login : " + login));
+                .findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email : " + email));
     }
 
     @Transactional(readOnly = false)
     public String registerUser(UserRegData data) {
         User newUser = new User();
-        newUser.setLogin(data.getLogin());
+        newUser.setName(data.getName());
         newUser.setEmail(data.getEmail());
         newUser.setPassword(data.getPassword());
         newUser.setStatus(UserStatus.ACTIVE);
@@ -54,10 +54,6 @@ public class UserService {
         return this.userRepository
                 .save(newUser)
                 .getId();
-    }
-
-    public Boolean existByLogin(String login) {
-        return this.userRepository.existsByLogin(login);
     }
 
     public Boolean existByEmail(String email) {

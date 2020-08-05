@@ -9,7 +9,7 @@ import java.sql.Date;
 @Table(name = "users")
 public class User extends AbstractEntity {
 
-    private String login;
+    private String name;
 
     private String email;
 
@@ -31,12 +31,12 @@ public class User extends AbstractEntity {
         super();
     }
 
-    public String getLogin() {
-        return login;
+    public String getName() {
+        return name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -90,7 +90,7 @@ public class User extends AbstractEntity {
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
+                "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +

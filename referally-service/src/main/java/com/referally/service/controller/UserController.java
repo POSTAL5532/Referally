@@ -19,8 +19,8 @@ public class UserController {
     /**
      * Возвращает информацию о пользователе
      */
-    @GetMapping("/userinfo/{login}")
-    public User getUserInfo(@PathVariable String login) {
-        return this.userService.getByLogin(login);
+    @GetMapping("/userinfo/{email}")
+    public User getUserInfo(@PathVariable String email) {
+        return this.userService.getByEmail(email);
     }
 }

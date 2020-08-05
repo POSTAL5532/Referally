@@ -3,7 +3,7 @@ POST http://localhost:8080/registration
 Content-Type: application/json
 
 {
-  "login": "",
+  "name": "",
   "email": "",
   "password": "",
   "r_password": ""
@@ -16,7 +16,7 @@ POST http://localhost:8080/registration
 Content-Type: application/json
 
 {
-  "login": "qqqq",
+  "name": "qqqq12",
   "email": "wwwww",
   "password": "eeee",
   "r_password": "eeee"
@@ -24,12 +24,12 @@ Content-Type: application/json
 
 ###
 
-# Valid values, passwords not equivalence, login and email not unique request
+# Valid values, passwords not equivalence, email not unique request
 POST http://localhost:8080/registration
 Content-Type: application/json
 
 {
-  "login": "ivan12",
+  "name": "ivan",
   "email": "ivan@qwe.qwe",
   "password": "Eeeee123",
   "r_password": "Qqqqq123"
@@ -42,7 +42,7 @@ POST http://localhost:8080/registration
 Content-Type: application/json
 
 {
-  "login": "newLogin123",
+  "name": "newname",
   "email": "newemail@email.em",
   "password": "Eeeee123",
   "r_password": "Eeeee123"
