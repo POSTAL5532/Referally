@@ -9,7 +9,7 @@ import {Redirect, Route, Switch} from "react-router";
 const App = () => {
     return (
         <>
-            <PageHeader title="Referally" subTitle="console application"/>
+            <PageHeader title="ReferUP" subTitle="console application"/>
 
             <Switch>
                 <UnauthorizedRoute path={LOGIN_PAGE_URL} exact component={LoginPage}/>

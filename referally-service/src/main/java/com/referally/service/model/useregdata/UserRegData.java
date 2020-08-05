@@ -14,10 +14,10 @@ import javax.validation.constraints.Pattern;
 public class UserRegData {
 
     @JsonIgnore
-    public static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,255}$";
+    public static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,20}$";
 
     @JsonIgnore
-    public static final String NAME_PATTERN = "^[a-zA-Z -]{2,255}$";
+    public static final String NAME_PATTERN = "^.{2,255}$";
 
     @NotBlank(message = "Имя не должно быть пустым")
     @Pattern(regexp = NAME_PATTERN, message = "Значение имени не корректно")
@@ -32,7 +32,7 @@ public class UserRegData {
     @Pattern(regexp = PASSWORD_PATTERN, message = "Значение пароля не корректно")
     private String password;
 
-    @JsonProperty("r_password")
+    @JsonProperty("rPassword")
     @NotBlank(message = "Повторный пароль не должен быть пустым")
     @Pattern(regexp = PASSWORD_PATTERN, message = "Значение повторного пароля не корректно")
     private String rPassword;

@@ -1,13 +1,19 @@
 /**
  * Модель запроса на регистрацию
  */
+import {observable} from "mobx";
+
 export class UserRegData {
 
-    public login: string;
+    @observable
+    public name: string = null;
 
-    public email: string;
+    @observable
+    public email: string = null;
 
-    public password: string;
+    @observable
+    public password: string = null;
 
-    public rPassword: string;
+    @observable
+    public rPassword: string = null;
 }
