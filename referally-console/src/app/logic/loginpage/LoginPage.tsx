@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "app/logic/loginpage/LoginPage.less"
 import {Button, Card, Form, Input} from "antd";
-import {UserOutlined, LockOutlined} from '@ant-design/icons';
+import {MailOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import {REGISTRATION_PAGE_URL} from "app/logic/registrationpage/RegistrationPage";
 
@@ -19,7 +19,7 @@ export class LoginPage extends Component {
                     <h2>Авторизация</h2>
                     <Form>
                         <Form.Item>
-                            <Input placeholder="Логин или email" prefix={<UserOutlined/>}/>
+                            <Input placeholder="Email" prefix={<MailOutlined/>}/>
                         </Form.Item>
                         <Form.Item>
                             <Input placeholder="Пароль" prefix={<LockOutlined/>}/>

@@ -22,9 +22,6 @@ export class RegistrationPage extends Component {
                             <Input placeholder="Email" prefix={<MailOutlined/>}/>
                         </Form.Item>
                         <Form.Item>
-                            <Input placeholder="Логин" prefix={<UserOutlined/>}/>
-                        </Form.Item>
-                        <Form.Item>
                             <Input placeholder="Пароль" prefix={<LockOutlined/>}/>
                         </Form.Item>
                         <Form.Item>
