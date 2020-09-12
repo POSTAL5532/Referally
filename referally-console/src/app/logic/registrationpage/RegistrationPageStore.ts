@@ -4,6 +4,9 @@ import {UserRegData} from "app/model/UserRegData";
 import {browserHistory} from "index";
 import {LOGIN_PAGE_URL} from "app/logic/loginpage/LoginPage";
 
+/**
+ * Стор страницы регистрации
+ */
 export class RegistrationPageStore {
 
     userService: UserService = new UserService();
@@ -11,6 +14,9 @@ export class RegistrationPageStore {
     @observable
     userRegData: UserRegData = new UserRegData();
 
+    /**
+     * Признак процесса выполнения асинхронной операции
+     */
     @observable
     registerProcess: boolean = false;
 

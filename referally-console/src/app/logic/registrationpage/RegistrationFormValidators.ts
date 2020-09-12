@@ -25,6 +25,11 @@ export const passwordValidators: Rule[] = [
     }
 ];
 
+/**
+ * Выполняет проверку на совпадение паролей
+ *
+ * @param form инстанс формы для получшения данных полей
+ */
 // @ts-ignore
 export const passwordEquivalenceValidator: RuleRender = (form: FormInstance): RuleObject => ({
         validator(rule, rPassword) {

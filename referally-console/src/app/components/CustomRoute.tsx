@@ -36,4 +36,3 @@ export const AuthorizedRoute = CustomRoute(() => tokenStore.tokenExists, LOGIN_P
  * Незащищенный роут, переход по нему возможен только в том случае, когда нет токена.
  */
 export const UnauthorizedRoute = CustomRoute(() => !tokenStore.tokenExists, "/DASHBOARD_PAGE_URL");
-

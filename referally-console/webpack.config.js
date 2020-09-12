@@ -108,6 +108,12 @@ module.exports = (env, argv) => {
     }
 };
 
+/**
+ * Возвращает пут к актуальным пропсам приложения (в зависимости от режима работы)
+ *
+ * @param mode
+ * @returns {string}
+ */
 function getEnvironmentFilePath(mode) {
     const modeEnvPath = path.resolve("public", `${mode}.props.js`);
     const defaultEnvPath = path.resolve("public/props.js");
