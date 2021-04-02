@@ -7,14 +7,14 @@ INTEGRATION_SERVER_DIR="/opt/referally_clients/${INTEGRATION_NAME}"
 SERVICE_NAME="referally-service"
 
 echo -e "########## Deploying config ..."
-SSH_USER="root"
-SSH_KEY_FILE="cicd/id_rsa"
-SSH_SERVER="46.101.148.211"
+SSH_USER=""
+SSH_KEY_FILE=""
+SSH_SERVER=""
 SERVER_FULL=${SSH_USER}@${SSH_SERVER}
 
-SQL_USER="root"
-SQL_PASSWORD="5532Stalker"
-SQL_DB_NAME="referally"
+SQL_USER=""
+SQL_PASSWORD=""
+SQL_DB_NAME=""
 
 chmod 600 ${SSH_KEY_FILE}
 
